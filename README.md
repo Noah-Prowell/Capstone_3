@@ -5,8 +5,13 @@ Use the script data from all South Park episodes to then make a charachter recom
 data: https://github.com/BobAdamsEE/SouthParkData
 
 Idea 2:
-Chatbot with a flask app
+Chatbot with a flask app.  Ask the chatbot a question and it can answer it by refrencing you to a wikipedia page that has the answer.
 <br/>
 Data option: https://github.com/katanaml/katana-assistant/blob/master/mlbackend/intents.json
 <br/>
 Data Option: All the files in the repo
+
+Idea 3:
+Can a neural net make fine art?  Given a large data set of fine art paintings use a generative neural net to create other paintings that could also be considered fine art. 
+<br/>
+Data: 
