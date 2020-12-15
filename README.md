@@ -5,6 +5,8 @@ Use the script data from all South Park episodes to then make a charachter recom
 data: https://github.com/BobAdamsEE/SouthParkData
 
 Idea 2:
-Chatbot
+Chatbot with a flask app
+<br/>
 Data option: https://github.com/katanaml/katana-assistant/blob/master/mlbackend/intents.json
+<br/>
 Data Option: All the files in the repo
