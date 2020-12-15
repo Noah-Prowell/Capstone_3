@@ -1,15 +1,16 @@
 # Capstone_3
 
 Idea 1:
-Use the script data from all South Park episodes to then make a charachter recommender from survey style questions in a flask app.  And use any given input sentence to find out what charachter might have said the line.
+Use script data to create a chatbot through a flask app.  Could create mutiple character bots and have the user interact with that character.  
 data: https://github.com/BobAdamsEE/SouthParkData
 
 Idea 2:
-Chatbot with a flask app.  Ask the chatbot a question and it can answer it by refrencing you to a wikipedia page that has the answer.
+Use image classification to identify melanoma skin lesions as benign or malignant 
 <br/>
-Data option: https://github.com/katanaml/katana-assistant/blob/master/mlbackend/intents.json
+Data: https://www.isic-archive.com/#!/topWithHeader/onlyHeaderTop/gallery?filter=%5B%5D
 <br/>
-Data Option: All the files in the repo
+https://github.com/GalAvineri/ISIC-Archive-Downloader
+
 
 Idea 3:
 Can a neural net make fine art?  Given a large data set of fine art paintings use a generative neural net to create other paintings that could also be considered fine art. 
