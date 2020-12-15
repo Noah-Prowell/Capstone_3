@@ -1,7 +1,7 @@
 # Capstone_3
 
 Idea 1:
-Use script data to create a chatbot through a flask app.  Could create mutiple character bots and have the user interact with that character.  
+Use script data from South Park to create a chatbot through a flask app.  Could create mutiple character bots and have the user interact with that character.  
 data: https://github.com/BobAdamsEE/SouthParkData
 
 Idea 2:
