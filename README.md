@@ -7,4 +7,4 @@ data: https://github.com/BobAdamsEE/SouthParkData
 Idea 2:
 Chatbot
 Data option: https://github.com/katanaml/katana-assistant/blob/master/mlbackend/intents.json
-Data Option: file in
+Data Option: All the files in the repo
