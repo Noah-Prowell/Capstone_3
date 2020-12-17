@@ -15,4 +15,6 @@ https://github.com/GalAvineri/ISIC-Archive-Downloader
 Idea 3:
 Can a neural net make fine art?  Given a large data set of fine art paintings use a generative neural net to create other paintings that could also be considered fine art. 
 <br/>
-Data: 
+Data: https://www.kaggle.com/ikarus777/best-artworks-of-all-time
+
+*Ignore files in repo no longer using
