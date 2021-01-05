@@ -59,3 +59,6 @@ while flag:
         print("Cartman: ",end="")
         print(response(user_response))
         corpus.remove(user_response)
+
+# with open("outfile", "w") as outfile:
+#     outfile.write("\n".join())
