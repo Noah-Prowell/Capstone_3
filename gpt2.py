@@ -6,47 +6,27 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import tensorflow as tf
 import numpy as np
 from transformers import pipeline, set_seed
+from BPE_token import BPE_token
 #read in text
 df = pd.read_csv('data/cartman.csv', names = ['Document'], dtype = str)
 corpus = [str(row) for row in df['Document']]
 
 """
-# Tokenize the data
-vec = CountVectorizer()
-word_tokenizer = vec.build_tokenizer()
-doc_terms_list_train = [word_tokenizer(doc) for doc in corpus]
-
-vectorizor = TfidfVectorizer(stop_words = 'english', strip_accents = 'ascii')
-X = vectorizor.fit_transform(corpus)
-word_tokens = vectorizor.get_feature_names()
-# tfidf_df = pd.DataFrame(X.todense(), columns = sorted(vectorizor.vocabulary_), dtype = np.int64)
-"""
-
-"""
-tokenizer = GPT2Tokenizer()
-#make config
-config = GPT2Config(vocab_size=len(word_tokens))
-
-#make the model
-model = TFGPT2LMHeadModel(config)
-
-optimizer = tf.keras.optimizers.Adam(learning_rate=.01)
-loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-# defining our metric which we want to observe
-metric = tf.keras.metrics.SparseCategoricalAccuracy('accuracy')
-# compiling the model
-model.compile(optimizer=optimizer, loss= loss, metrics=[metric])
-num_epoch = 1
-history = model.fit(, epochs=num_epoch)
-"""
-
-
-# generator = pipeline('text-generation', model='gpt2')
-# set_seed(42)
-# text = generator("Hello, I'm a language model,", max_length=30, num_return_sequences=5)
-
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = TFGPT2Model.from_pretrained('gpt2')
-text = corpus[0]
-encoded_input = tokenizer(text, return_tensors='tf')
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = TFGPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
+text = corpus[6]
+encoded_input = tokenizer.encode(text, return_tensors='tf')
 output = model(encoded_input)
+greedy_output = model.generate(encoded_input, max_length=50, top_k=50, top_p=.95, do_sample=True)
+print(tokenizer.decode(greedy_output[0], skip_special_tokens=True))
+"""
+path = 'outfile.txt'
+tokenizer = BPE_token()
+# train the tokenizer model
+tokenizer.bpe_train(path)
+# saving the tokenized data in our specified folder 
+save_path = 'tokenized_data'
+tokenizer.save_tokenizer(save_path)
+
+# loading tokenizer from the saved model path
+tokenizer = GPT2Tokenizer.from_pretrained(save_path)
