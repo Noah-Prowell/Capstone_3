@@ -1,3 +1,4 @@
+from enum import auto
 from tensorflow import keras
 import tensorflow as tf
 from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
@@ -81,21 +82,16 @@ text_gen_callback = TextGenerator(
     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    # model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
+    model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
     # model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
     # print('Training')
-    model = keras.models.load_model('best_mod_lstm')
-    text_prompt = "Try to relax"
-    prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
-    text_gen_callback = TextGenerator(
-        prompt,
-        generate_length=50,
-        model_input_length=sequence_length,
-        temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
-    model.fit(lm_dataset, epochs=1, callbacks=[text_gen_callback])
-=======
-    model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
-    model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
-    print('Training')
->>>>>>> c330fd15d4c018e24de030150ee8acdf15f3eccf
+    # model = keras.models.load_model('best_mod_lstm')
+    # text_prompt = "Try to relax"
+    # prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
+    # text_gen_callback = TextGenerator(
+    #     prompt,
+    #     generate_length=50,
+    #     model_input_length=sequence_length,
+    #     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
+    model.fit(lm_dataset, epochs=1)
+
