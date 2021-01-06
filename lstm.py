@@ -72,7 +72,7 @@ class TextGenerator(keras.callbacks.Callback):
             print(decode_token_indices(token_sequence))
 
 
-text_prompt = "This movie"
+text_prompt = "Hey guys"
 prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
 text_gen_callback = TextGenerator(
     prompt,
@@ -81,6 +81,15 @@ text_gen_callback = TextGenerator(
     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
 
 if __name__ == "__main__":
-    model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
-    model.fit(lm_dataset, epochs=200, callbacks=[text_gen_callback])
-    print('Training')
+    # model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
+    # model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
+    # print('Training')
+    model = keras.models.load_model('best_mod_lstm')
+    text_prompt = "Try to relax"
+    prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
+    text_gen_callback = TextGenerator(
+        prompt,
+        generate_length=50,
+        model_input_length=sequence_length,
+        temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
+    model.fit(lm_dataset, epochs=1, callbacks=[text_gen_callback])
