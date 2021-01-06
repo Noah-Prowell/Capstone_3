@@ -81,6 +81,7 @@ text_gen_callback = TextGenerator(
     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     # model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
     # model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
     # print('Training')
@@ -93,3 +94,8 @@ if __name__ == "__main__":
         model_input_length=sequence_length,
         temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
     model.fit(lm_dataset, epochs=1, callbacks=[text_gen_callback])
+=======
+    model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
+    model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
+    print('Training')
+>>>>>>> c330fd15d4c018e24de030150ee8acdf15f3eccf
