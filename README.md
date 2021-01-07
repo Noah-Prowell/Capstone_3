@@ -1,6 +1,6 @@
 # South Park GANs
  <p align="center">
-    <img src="Southpark_header.jpg" width='700'/>
+    <img src="southpark_header.jpg"/>
     </p>
 Welcome to my capstone 3 for Galvanize data science immersive!  A little background on the project.  I first started this project as an idea to create a chatbot using South Park script data.  I wanted to be able to have you interact with the characters as if you were actually there in the town of South Park!  I quickly realized that this was way out of the scope of a week project simply for the reason of getting the computer to "understand language".  So I moved to generating script data!  
 
