@@ -12,4 +12,4 @@
   - The second was a retrained simple-GPT2
   
 ## LSTM NN
-  
+  ![Screenshot](.png)
