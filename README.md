@@ -12,4 +12,4 @@
   - The second was a retrained simple-GPT2
   
 ## LSTM NN
-  ![Screenshot](.png)
+  <img>Screenshot from 2021-01-07 11-51-26.png</img>
