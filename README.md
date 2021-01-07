@@ -1,20 +1,15 @@
-# Capstone_3
+# South Park GANs
 
-Idea 1:
-Use script data from South Park to create a chatbot through a flask app.  Could create mutiple character bots and have the user interact with that character.  
-data: https://github.com/BobAdamsEE/SouthParkData
-
-Idea 2:
-Use image classification to identify melanoma skin lesions as benign or malignant 
-<br/>
-Data: https://www.isic-archive.com/#!/topWithHeader/onlyHeaderTop/gallery?filter=%5B%5D
-<br/>
-https://github.com/GalAvineri/ISIC-Archive-Downloader
-
-
-Idea 3:
-Can a neural net make fine art?  Given a large data set of fine art paintings use a generative neural net to create other paintings that could also be considered fine art. 
-<br/>
-Data: https://www.kaggle.com/ikarus777/best-artworks-of-all-time
-
-*Ignore files in repo no longer using
+## What is a GAN?
+  - A GAN is a Generative Adversarial Network.
+  - They use Neural Network architechure to generate all kinds of things such as images and text!
+  - GANs do not have labels or targets therefore they are a unsupervised machine learning technique.
+  - Once trained on text data or images they are ableto generate something that could come close to being in the original dataset.
+## GANs used in this project
+  - I used two different GAN architectures to generate my text.
+  - Both architectures were trained on the same individual character South Park script data
+  - The first architecture I used was a simple LSTM neural network.
+  - The second was a retrained simple-GPT2
+  
+## LSTM NN
+  
