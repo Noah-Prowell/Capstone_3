@@ -51,18 +51,18 @@ def sample_next(preds, temperature=1.0):
 class TextGenerator(keras.callbacks.Callback):
 
     def __init__(self,
-                 prompt,
-                 generate_length,
-                 model_input_length,
-                 temperatures=(1.,)):
+                prompt,
+                generate_length,
+                model_input_length,
+                temperatures=(1.,)):
         self.prompt = prompt
         self.generate_length = generate_length
         self.model_input_length = model_input_length
         self.temperatures = temperatures
+        self.words_list = []
 
     def on_epoch_end(self, epoch, logs=None):
         for temperature in self.temperatures:
-            print('== Generating with temperature', temperature)
             token_sequence = self.prompt[:]
             tokens_generated = []
             while len(token_sequence) - len(self.prompt) < self.generate_length:
@@ -70,7 +70,7 @@ class TextGenerator(keras.callbacks.Callback):
                 preds = self.model.predict(model_input).astype('float64')
                 next_token = sample_next(preds[0, -1], temperature=temperature)
                 token_sequence.append(next_token)
-            print(decode_token_indices(token_sequence))
+            self.words_list.append(decode_token_indices(token_sequence))
 
 
 text_prompt = "Hey guys"
@@ -82,16 +82,17 @@ text_gen_callback = TextGenerator(
     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
 
 if __name__ == "__main__":
-    model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
+    # model.compile(loss='sparse_categorical_crossentropy', optimizer='rmsprop')
     # model.fit(lm_dataset, epochs=700, callbacks=[text_gen_callback])
     # print('Training')
-    # model = keras.models.load_model('best_mod_lstm')
-    # text_prompt = "Try to relax"
-    # prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
-    # text_gen_callback = TextGenerator(
-    #     prompt,
-    #     generate_length=50,
-    #     model_input_length=sequence_length,
-    #     temperatures=(0.1, 0.2, 0.5, 0.7, 1., 1.5))
-    model.fit(lm_dataset, epochs=1)
-
+    model = keras.models.load_model('stan_500')
+    text_prompt = "Hey guys"
+    prompt = list(vectorize_layer([text_prompt]).numpy()[0])[:2]
+    text_gen_callback = TextGenerator(
+        prompt,
+        generate_length=15,
+        model_input_length=sequence_length,
+        temperatures=(.9, 1., 1.3, 1.5, 1.8, 1.9, 2., 2.2, 2.5, 2.8))
+    model.fit(lm_dataset, epochs=1000, callbacks=[text_gen_callback])
+    words_out = text_gen_callback.words_list
+    # (.9, 1., 1.3, 1.5, 1.8, 1.9, 2., 2.2, 2.5, 2.8)
