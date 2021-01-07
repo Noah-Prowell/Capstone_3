@@ -13,4 +13,3 @@
   
 ## LSTM NN
    ![Model Structure](Screenshot from 2021-01-07 11-51-26.png)
-   Format: ![Alt Text](url)
