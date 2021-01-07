@@ -12,4 +12,5 @@
   - The second was a retrained simple-GPT2
   
 ## LSTM NN
-  <img>Screenshot from 2021-01-07 11-51-26.png</img>
+   ![Model Structure](Screenshot from 2021-01-07 11-51-26.png)
+   Format: ![Alt Text](url)
