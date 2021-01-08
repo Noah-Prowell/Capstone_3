@@ -93,6 +93,7 @@ if __name__ == "__main__":
         generate_length=15,
         model_input_length=sequence_length,
         temperatures=(.9, 1., 1.3, 1.5, 1.8, 1.9, 2., 2.2, 2.5, 2.8))
-    model.fit(lm_dataset, epochs=1000, callbacks=[text_gen_callback])
+    print(model.summary())
+    # model.fit(lm_dataset, epochs=1, callbacks=[text_gen_callback])
     words_out = text_gen_callback.words_list
     # (.9, 1., 1.3, 1.5, 1.8, 1.9, 2., 2.2, 2.5, 2.8)
