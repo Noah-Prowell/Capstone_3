@@ -33,3 +33,8 @@ Welcome to my capstone 3 for Galvanize data science immersive!  A little backgro
   - I used a Random Forest classifier because it is quite fast at trainging since it can work in parallel, and it is quite accurate without much need for tuning.
   - The GPT2 generated text was able to be distinguished roughly 60% of the time vs. the LSTM generated text was able to be distinguished 100% of the time.
   - This shows that the GPT2 model was able to generate more realistic text since the accuracy of the random forest classifier was lower than that of the LSTM model.  
+
+
+
+## Appendix
+- GPT2 training collab notebook: https://colab.research.google.com/drive/10AcSRJi1fW5DKMugJZ0qGmnc_rBOHVLW#scrollTo=VHdTL8NDbAh3
